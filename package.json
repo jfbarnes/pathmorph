@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jfbarnes/npm-babel-es6-boilerplate.git"
+    "url": "git+https://github.com/jfbarnes/pathmorph.git"
   },
   "author": "Josh Barnes",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jfbarnes/npm-babel-es6-boilerplate/issues"
+    "url": "https://github.com/jfbarnes/pathmorph/issues"
   },
-  "homepage": "https://github.com/jfbarnes/npm-babel-es6-boilerplate#readme",
+  "homepage": "https://github.com/jfbarnes/pathmorph#readme",
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
