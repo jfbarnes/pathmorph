@@ -1,0 +1,26 @@
+{
+  "name": "pathmorph",
+  "version": "1.0.0",
+  "description": "Animated morphing between SVG paths",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "watch": "babel src -w -d lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfbarnes/npm-babel-es6-boilerplate.git"
+  },
+  "author": "Josh Barnes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jfbarnes/npm-babel-es6-boilerplate/issues"
+  },
+  "homepage": "https://github.com/jfbarnes/npm-babel-es6-boilerplate#readme",
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.17.0",
+    "babel-preset-es2015": "^6.16.0"
+  }
+}
