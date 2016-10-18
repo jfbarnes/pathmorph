@@ -3,7 +3,7 @@ import TWEEN from 'tween.js';
 const defaultOpts = {
 	fill: false,
 	loop: false,
-	colour: '#000',
+	color: '#000',
 	sampleSteps: 200,
 	duration: 500
 };
@@ -26,12 +26,12 @@ function samplePath(id, sampleSteps) {
  Draw the path with the given points on the supplied canvas context.
  If fill = true then attempts to close the path and fill it. If the start
  and end points don't connect setting fill to true in the options could
- result in some strange shapes. Fill/stroke with supplied colour.
+ result in some strange shapes. Fill/stroke with supplied color.
 */
-function drawPathToCanvas(ctx, points, fill, colour) {
+function drawPathToCanvas(ctx, points, fill, color) {
 
-	ctx.fillStyle = colour;
-	ctx.strokeStyle = colour;
+	ctx.fillStyle = color;
+	ctx.strokeStyle = color;
 	const end = points[points.length - 1];
 
 	// Draw points
@@ -63,12 +63,12 @@ export default class PathMorph {
 		this.ctx = this.canvas.getContext('2d');
 		this.interpolationPoint = { percentage: 0 };
 
-		// Sample the from and too paths
+		// Sample the from and to paths
 		this.pathPointsFrom = samplePath(this.opts.fromPathId, this.opts.sampleSteps);
 		this.pathPointsTo = samplePath(this.opts.toPathId, this.opts.sampleSteps);
 
 		// Draw initial path
-		drawPathToCanvas(this.ctx, this.pathPointsFrom, this.opts.fill, this.opts.colour);
+		drawPathToCanvas(this.ctx, this.pathPointsFrom, this.opts.fill, this.opts.color);
 	}
 
 	/*
@@ -106,7 +106,7 @@ export default class PathMorph {
 	animate(time) {
 		if(performance.now() <= this.endTime) {
 			this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-			drawPathToCanvas(this.ctx, this.interpolatePaths(), this.opts.fill, this.opts.colour);
+			drawPathToCanvas(this.ctx, this.interpolatePaths(), this.opts.fill, this.opts.color);
 			window.requestAnimationFrame(this.animate.bind(this));
 			TWEEN.update(time);
 		}
