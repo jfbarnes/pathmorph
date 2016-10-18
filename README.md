@@ -40,13 +40,13 @@ pm.backwards();
 
 The PathMorph constructor accepts an options object containing the following:
 
-* ***canvasId*** *(required)*: The ID of the canvas to render the animation into
-* ***fromPathId*** *(required)*: The ID of the svg path that animation will begin at
-* ***toPathId*** *(required)*: The ID of the svg path that animation will morph to
-* ***fill***: Boolean, default false. Fills the path's shape if true. Uses a stroke if false
-* ***color***: String, default '#000'. Color of stroke/fill
-* ***sampleSteps***: Number, default 200. Number of sample points to take along each path. (Controls "resolution" of animation)
-* ***duration***: Number, default 500. Milliseconds to complete each animation
+* **canvasId** *(required)*: String, ID of the canvas to render the animation into
+* **fromPathId** *(required)*: String, ID of the svg path that animation will begin at
+* **toPathId** *(required)*: String, ID of the svg path that animation will morph to
+* **fill**: Boolean, default false. Fills the path's shape if true. Uses a stroke if false
+* **color**: String, default '#000'. Color of stroke/fill
+* **sampleSteps**: Number, default 200. Number of sample points to take along each path. (Controls "resolution" of animation)
+* **duration**: Number, default 500. Milliseconds to complete each animation
 
 ### Todo
 * Implement looping functionality (+ expose start / stop functions)
