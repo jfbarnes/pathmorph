@@ -1,6 +1,6 @@
 {
   "name": "pathmorph",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Animated morphing between SVG paths",
   "main": "lib/index.js",
   "scripts": {
