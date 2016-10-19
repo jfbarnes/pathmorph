@@ -17,7 +17,7 @@ Define your paths in a hidden svg element. There should be a 'from' and a 'to' p
   <path id="from-path" ... />
   <path id="to-path" ... />
 </svg>
-<canvas id="my-canvas" width="width" height="height" /> 
+<canvas id="my-canvas" width="width" height="height" />
 ```
 
 The three IDs in the above example are the minimum required to use pathmorph:
@@ -32,7 +32,7 @@ const pm = new Pathmorph({
 });
 ```
 
-The pathmorph object exposes two methods for animating:
+The pathmorph object exposes four methods for animating:
 
 ```js
 // Animate paths from -> to
@@ -40,16 +40,30 @@ pm.forwards();
 
 // Animate paths to -> from
 pm.backwards();
+
+// Start infinite looping between paths
+pm.start();
+
+// Stop looping between paths
+pm.stop();
 ```
 
 ### Options
 
 The pathmorph constructor accepts an options object containing the following:
 
-* **canvasId** *(required)*: String, ID of the canvas to render the animation into
-* **fromPathId** *(required)*: String, ID of the svg path that animation will begin at
-* **toPathId** *(required)*: String, ID of the svg path that animation will morph to
-* **fill**: Boolean, default false. Fills the path's shape if true. Uses a stroke if false
-* **color**: String, default '#000'. Color of stroke/fill
-* **sampleSteps**: Number, default 200. Number of sample points to take along each path. (Controls "resolution" of animation)
-* **duration**: Number, default 500. Milliseconds to complete each animation
+* **canvasId** *(string, required)*: ID of the canvas to render the animation into
+
+* **fromPathId** *(string, required)*: ID of the svg path that animation will begin at
+
+* **toPathId** *(string, required)*: ID of the svg path that animation will morph to
+
+* **fill** *(boolean, default false)*: Fills the path's shape if true. Uses a stroke if false
+
+* **color** *(string, default '#000')*: Color of stroke/fill
+
+* **sampleSteps** *(number, default 200)*: Number of sample points to take along each path. (Controls "resolution" of animation)
+
+* **duration** *(number, default 500)*: Milliseconds to complete each animation
+
+* **loop** *(boolean, default false)*: If true, looping starts immediately
