@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src -d lib",
     "watch": "babel src -w -d lib",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
