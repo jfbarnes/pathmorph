@@ -6,6 +6,10 @@ If you're using React and looking for an easy way to use this, try the [react-pa
 
 ### Usage
 
+```cli
+npm install --save pathmorph
+```
+
 Define your paths in a hidden svg element. There should be a 'from' and a 'to' path that pathmorph will animate between. The animation will be rendered in a canvas element that you also define:
 
 ```HTML
@@ -49,8 +53,3 @@ The pathmorph constructor accepts an options object containing the following:
 * **color**: String, default '#000'. Color of stroke/fill
 * **sampleSteps**: Number, default 200. Number of sample points to take along each path. (Controls "resolution" of animation)
 * **duration**: Number, default 500. Milliseconds to complete each animation
-
-### Todo
-* Implement looping functionality (+ expose start / stop functions)
-* Add support for more than just two paths
-* Only fill paths if they start and end at the same point
