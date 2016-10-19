@@ -47,6 +47,14 @@ function drawPathToCanvas(ctx, points, fill, color) {
 
 }
 
+/*
+ Clear the supplied canvas
+*/
+function clearCanvas(canvas) {
+	const ctx = canvas.getContext('2d');
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
 export default class PathMorph {
 
 	constructor(opts) {
@@ -69,6 +77,10 @@ export default class PathMorph {
 
 		// Draw initial path
 		drawPathToCanvas(this.ctx, this.pathPointsFrom, this.opts.fill, this.opts.color);
+
+		if(opts.loop) {
+			this.startLoop();
+		}
 	}
 
 	/*
@@ -104,8 +116,19 @@ export default class PathMorph {
 	 (keeps things in sync)
 	*/
 	animate(time) {
-		if(performance.now() <= this.endTime) {
-			this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+		// If looping and have reached 0 or 100 percent of the interpolation,
+		// we go back in the other direction
+		if(this.looping) {
+			if(this.interpolationPoint.percentage === 0) {
+				this.stepInterpolationPercentage();
+			} else if(this.interpolationPoint.percentage === 1) {
+				this.stepInterpolationPercentage(/* reverse */ true)
+			}
+		}
+
+		if(this.looping || performance.now() <= this.endTime) {
+			clearCanvas(this.canvas);
 			drawPathToCanvas(this.ctx, this.interpolatePaths(), this.opts.fill, this.opts.color);
 			window.requestAnimationFrame(this.animate.bind(this));
 			TWEEN.update(time);
@@ -121,6 +144,11 @@ export default class PathMorph {
 		this.animate();
 	}
 
+	startLoop() {
+		this.looping = true;
+		this.animate();
+	}
+
 	/*
 	 Animate from the 'to' path to the 'from' path
 	*/
@@ -128,6 +156,18 @@ export default class PathMorph {
 		this.stepInterpolationPercentage(/* reverse */ true);
 		this.endTime = performance.now() + this.opts.duration;
 		this.animate();
+	}
+
+	stopLoop() {
+		this.looping = false;
+
+		// Jump to closest path
+		clearCanvas(this.canvas);
+		if(this.interpolationPoint.percentage < 0.5) {
+			drawPathToCanvas(this.ctx, this.pathPointsFrom, this.opts.fill, this.opts.color);
+		} else {
+			drawPathToCanvas(this.ctx, this.pathPointsTo, this.opts.fill, this.opts.color);
+		}
 	}
 
 }
