@@ -16,7 +16,7 @@ Define your paths in a hidden svg element. There should be a 'from' and a 'to' p
 <canvas id="my-canvas" width="width" height="height" /> 
 ```
 
-The three IDs in the above example are the minimum required to use PathMorph:
+The three IDs in the above example are the minimum required to use pathmorph:
 
 ```js
 import Pathmorph from 'pathmorph'
