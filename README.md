@@ -1,10 +1,12 @@
-## PathMorph
+## pathmorph
 
-Animate from one SVG path to another. Credit to http://codepen.io/rachsmith/details/ONVQWv/ for initial ideas.
+Animate from one SVG path to another. Credit to [this CodePen](http://codepen.io/rachsmith/details/ONVQWv/) for initial ideas.
+
+If you're using React and looking for an easy way to use this, try the [react-pathmorph component](https://github.com/jfbarnes/react-pathmorph).
 
 ### Usage
 
-Define your paths in a hidden svg element. There should be a 'from' and a 'to' path that PathMorph will animate between. The animation will be rendered in a canvas element that you also define:
+Define your paths in a hidden svg element. There should be a 'from' and a 'to' path that pathmorph will animate between. The animation will be rendered in a canvas element that you also define:
 
 ```HTML
 <svg viewBox="0 0 width height" style={display: 'none'}>
@@ -17,16 +19,16 @@ Define your paths in a hidden svg element. There should be a 'from' and a 'to' p
 The three IDs in the above example are the minimum required to use PathMorph:
 
 ```js
-import PathMorph from 'pathmorph'
+import Pathmorph from 'pathmorph'
 
-const pm = new PathMorph({
+const pm = new Pathmorph({
     canvasId: 'my-canvas',
     fromPathId: 'from-path',
     toPathId: 'to-path'
 });
 ```
 
-The PathMorph object exposes two methods for animating:
+The pathmorph object exposes two methods for animating:
 
 ```js
 // Animate paths from -> to
@@ -38,7 +40,7 @@ pm.backwards();
 
 ### Options
 
-The PathMorph constructor accepts an options object containing the following:
+The pathmorph constructor accepts an options object containing the following:
 
 * **canvasId** *(required)*: String, ID of the canvas to render the animation into
 * **fromPathId** *(required)*: String, ID of the svg path that animation will begin at
